@@ -37,33 +37,40 @@ class ResumeGenerator:
         Current Resume:
         {resume_text}
 
-        Please analyze both and create an optimized resume that:
-        1. Highlights relevant skills and experiences that match the job description
-        2. Uses strong action verbs and quantifies achievements
-        3. Maintains the same basic structure but reprioritizes and adds/subtracts content based on the job requirements
-        4. Uses ATS-friendly formatting
-        5. Keeps the most impressive achievements and metrics
-        6. Optimizes for keyword matching and overall relevance to the job for higher ATS score
-        7. The goal is to have a resume that is highly tailored to the job description and stands out to recruiters with approx more than 90% compatibility score.
-        
-        -- Analyse the JD after developing the resume and ensure that the resume is highly compatible with the JD, an score more than 90%.
+        Please create an ATS-optimized resume that achieves a 90%+ compatibility score by:
 
+        1. Analyzing the job description to:
+        - Extract critical keywords, skills, and requirements
+        - Identify primary and secondary job responsibilities
+        - Note specific technical tools, methodologies, and industry terms
+        - Map required years of experience and qualifications
 
-        Format the output in clean markdown using:
-        # for name and contact (largest)
-        ## for section headers
-        - for bullet points
-        
-        Sections should include:
-        - Summary
-        - Experience
-        - Education
-        - Skills
-        - Certifications/Awards
+        2. Transforming the resume content to:
+        - Mirror exact phrases and keywords from the job description
+        - Convert all bullets into the format: [Action Verb] + [Achievement] + [Result/Impact] + [Metrics]
+        - Incorporate relevant keywords naturally within achievement statements
+        - Include both spelled-out terms and acronyms (e.g., "Artificial Intelligence (AI)")
+        - Use industry-standard job titles that align with the target role
 
-        Keep all contact information and education details from the original resume. 
+        3. Implementing ATS-friendly formatting:
+        - Use clean, standard section headers
+        - Avoid tables, columns, graphics, or special characters
+        - Utilize simple bullet points (• or -)
+        - Maintain consistent date formats (MM/YYYY)
+        - Use standard fonts (Arial, Calibri, Times New Roman) and sizes (10-12 pt)
+
+        4. Verification Process:
+        - Cross-reference against job description for keyword coverage
+        - Ensure every required skill/qualification is addressed
+        - Verify metrics and achievements align with role priorities
+        - Run through ATS simulation tool to confirm 90%+ match
+        - Adjust content based on ATS feedback until target score is reached
+
+        Note: Retain all original contact information, education details, and verifiable achievements. Focus on reorganizing and rephrasing content to maximize ATS compatibility while maintaining authenticity.
         
-        Provide only the markdown output and no commentaries arount it"""
+        Please provide the optimized resume in markdown format with clear sections and bullet points. Keep the content concise, relevant, and achievement-oriented.
+        
+        Only provide markdown formatted text. Do not include any other content or formatting or comments."""
 
     def extract_text_from_pdf(self) -> str:
         """Extract text content from the PDF file."""

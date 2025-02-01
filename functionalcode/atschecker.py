@@ -1,11 +1,17 @@
 import streamlit as st
 import PyPDF2
 import os
-from llmcalls.geminiresponse import setup_gemini, generate_text
+import sys
+# Add parent directory to Python path
+current_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.dirname(current_dir)
+sys.path.append(parent_dir)
+from llmcalls.orresponse import OpenRouterClient
+
+ORClient = OpenRouterClient()
 
 class ATSChecker:
-    def __init__(self):
-        setup_gemini()
+
 
     def extract_text_from_pdf(self, pdf_file) -> str:
         """Extract text from uploaded PDF file"""
@@ -57,7 +63,10 @@ Keep explanations concise but informative.
         """Analyze resume against job description"""
         try:
             prompt = self.generate_analysis_prompt(resume_text, job_description)
-            analysis = generate_text(prompt)
+            analysis = ORClient.generate_text(prompt)
+            print(f"Generated prompt: {prompt[:100]}...")  # First 100 chars
+            print(f"Analysis result: {analysis}")
+            
             return analysis
         except Exception as e:
             raise RuntimeError(f"Analysis failed: {str(e)}")

@@ -25,7 +25,7 @@ class OpenRouterClient:
         """
         try:
             completion = self.client.chat.completions.create(
-                model="anthropic/claude-3.5-sonnet",
+                model="openai/gpt-4o-2024-11-20",
                 messages=[
                     {
                         "role": "user",
